@@ -228,9 +228,6 @@ h2 {
 }
 
 .footer {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
     background-color: #D4D1D148;
     color: var(--color-secundario);
     font-family: var(--fuente-primaria);
