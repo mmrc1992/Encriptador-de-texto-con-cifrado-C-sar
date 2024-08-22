@@ -235,8 +235,6 @@ h2 {
     font-size: 1.25rem;
     text-align: center;
     padding: 15px;
-    bottom: 0;
-    position: flex;
 }
 
 /* Media Queries para dispositivos móviles */
@@ -314,4 +312,5 @@ h2 {
     #botonCopiarResultado {
         width: 100%;
     }
+    
 }
