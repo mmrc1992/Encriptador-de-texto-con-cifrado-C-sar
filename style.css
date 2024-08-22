@@ -277,6 +277,10 @@ h2 {
     #botonCopiarResultado {
         width: 100%;
     }
+
+    .footer {
+        width: 100%;
+    }
 }
 
 /* Media Queries para tablets */
@@ -311,6 +315,10 @@ h2 {
     }
 
     #botonCopiarResultado {
+        width: 100%;
+    }
+
+    .footer {
         width: 100%;
     }
 }
