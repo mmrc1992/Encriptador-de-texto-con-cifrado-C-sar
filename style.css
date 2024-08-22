@@ -228,6 +228,9 @@ h2 {
 }
 
 .footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
     background-color: #D4D1D148;
     color: var(--color-secundario);
     font-family: var(--fuente-primaria);
@@ -235,6 +238,7 @@ h2 {
     font-size: 1.25rem;
     text-align: center;
     padding: 15px;
+    
 
 }
 
