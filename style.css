@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    /* Colores */
+    --color-primario: #0A3871;
+    --color-secundario: #9E9E9E;
+    --color-texto: #495057;
+    --border-color: #E5E6E7;
+    --border-color-sec: #D8DFE8;
+    --background-color: #F3F5FC;
+    --sec-background-color: #FFFFFF;
+    --hover-background: #65656623;
+    --sec-hover-background: #1B569E;
+    --color-hover-texto: #0A3871BE;
+    --modal-background: rgba(0, 0, 0, 0.4);
+    --modal-content-background: #FEFEFE;
+    --modal-texto-color: #343A40;
+
+    /* Fuentes */
+    --fuente-primaria: "Inter";
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 0px;
+    background-color: var(--background-color);
+}
+
+.Encriptador {
+    display: flex;
+    align-items: center;
+    margin: 10% 15%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+h1 {
+    color: var(--color-primario);
+    font-size: 2.18rem;
+    font-family: var(--fuente-primaria);
+    font-style: oblique;
+    font-weight: thin;
+}
+
+.botones {
+    width: 40%;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 21.5px 0;
+    font-family: var(--fuente-primaria);
+    margin: 32px;
+}
+
+.botones:active {
+    box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.3); 
+}
+
+#containerEncriptador {
+    width: 100%; 
+    max-width: 750px;
+    height: auto; 
+    align-items: center;
+    padding: 30px;
+    border-radius: 15px;
+    text-wrap: wrap;
+}    
+
+#textoInput {
+    background-color: var(--background-color);
+    color: var(--color-texto);
+    opacity: 0.5;
+    font-style: oblique;
+    font-size: 1.5rem;
+    font-family: var(--fuente-primaria);
+    margin: 20px; 
+    outline: none;
+    padding: 8px;
+    width: 90%;
+    height: 100px;
+    resize: none;
+    border: none;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;   
+}
+
+#botonEncriptar {
+    background-color: var(--color-primario);
+    color: #FFFFFF;
+    border-style: none;
+}
+
+#botonEncriptar:hover {
+    background-color: var(--sec-hover-background); 
+}
+
+#botonDesencriptar {
+    background-color: var(--background-color);
+    color: var(--color-primario);
+    border-style: solid;
+    border-color:var(--border-color);
+    border-width: thin;
+}
+
+#botonDesencriptar:hover {
+    background-color: var(--hover-background);
+    color: var(--color-hover-texto); 
+}
+
+#containerResultado {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    width: 100%; 
+    max-width: 1000px;
+    margin: 20px;
+    padding: 30px;
+    border-radius: 15px;
+    background-color: var(--sec-background-color);
+    text-wrap: wrap;
+    box-shadow: 0.5px 0.5px 20px #AAA;
+    box-sizing: border-box;
+}
+
+h2 {
+    color: var(--color-texto);
+    opacity: 0.1;
+    font-family: var(--fuente-primaria);
+    font-style: italic;
+    font-weight: thin;
+    font-size: 1.75rem;
+}
+
+#textoResultado { 
+    border: none;
+    outline: none;
+    padding: 8px;
+    background-color: var(--sec-background-color);
+    color: var(--color-texto);
+    font-style: italic;
+    font-size: 1.5rem;
+    font-family: var(--fuente-primaria);
+    margin-top: 10px;
+    width: 100%;
+    height: 100px;    
+    resize: none; 
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+#botonCopiarResultado {
+    background-color: var(--sec-background-color);
+    color: var(--color-primario);
+    margin: auto;
+    border-style: solid;
+    border-color: var(--border-color);
+    border-width: thin; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    box-sizing: border-box;
+}
+
+#botonCopiarResultado:hover {
+    background-color: var(--hover-background);
+    color: var(--color-hover-texto); 
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    justify-content: space-around;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--modal-background);
+    color: var(--modal-texto-color); 
+}
+
+.contenidoModal {
+    background-color: var(--modal-content-background);
+    box-shadow: 0.5px 0.5px 20px var(--color-texto);
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid var(--border-color-sec);
+    border-radius: 20px;
+    width: 90%; 
+    max-width: 400px;
+    height: auto; 
+}
+
+#textoError {
+    margin-top: 90px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: var(--fuente-primaria);
+}
+
+.cerrar {
+    color: #AAA;
+    float: right;
+    font-size: 1.75rem;
+    font-family: var(--fuente-primaria);
+    font-weight: bold;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#imagenError {
+    width: 100%; 
+    max-width: 300px;
+    height: auto;
+    margin-top: 80px;
+    margin-left: 50px;
+}
+
+.footer {
+    background-color: #D4D1D148;
+    color: var(--color-secundario);
+    font-family: var(--fuente-primaria);
+    font-style: oblique;
+    font-size: 1.25rem;
+    text-align: center;
+    padding: 15px;
+
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+    
+    .Encriptador {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    h1 {
+        width: auto;
+    }
+    
+    #containerEncriptador {
+        height: auto;
+    }
+
+    #textoInput {
+        font-size: 1.5rem;
+        height: 80px;
+    }
+
+    .botones {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    #containerResultado {
+        width: 100%;
+        height: auto;
+    }
+
+    #textoResultado {
+        font-size: 1.5rem;
+        height: auto;
+    }
+
+    #botonCopiarResultado {
+        width: 100%;
+    }
+}
+
+/* Media Queries para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    h1 {
+        width: auto;
+    }
+    
+    #containerEncriptador {
+        height: auto;
+    }
+
+    #textoInput {
+        font-size: 1.75rem;
+        height: 90px;
+    }
+
+    .botones {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    #containerResultado {
+        width: 100%;
+        height: auto;
+    }
+
+    #textoResultado {
+        font-size: 1.75rem;
+        height: auto;
+    }
+
+    #botonCopiarResultado {
+        width: 100%;
+    }
+}
