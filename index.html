@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encriptador de Cifrado César</title>
+    <title>Encriptador de Vocales</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="body">
-    <header></header>
-    
+<body class="body">    
     <main class="Encriptador">
         <section class="contenido_encriptador">
-            <div id="containerEncriptador" class="container">
-                <h1>Encriptador con cifrado césar</h1>     
+            <h1>Encriptador de palabras</h1> 
+            <div id="containerEncriptador" class="container">                    
                 <!-- Encriptar y Desencriptar -->
                 <textarea id="textoInput" placeholder="Ingresa el texto"></textarea>
+                <h5>Sólo letras minúsculas, sin tildes ni caracteres especiales</h5>
                 <button class="botones" id="botonEncriptar">Encriptar</button>
                 <button class="botones" id="botonDesencriptar">Desencriptar</button>            
             </div>
@@ -33,13 +32,11 @@
             <div class="contenidoModal">
                 <span class="cerrar">&times;</span>
                 <p id="textoError">Ningún mensaje fue encontrado.</p>
-                <img id="imagenError" src="Imagen encriptador.png" alt="Imagen de una persona con una lupa">
+                <img id="imagenError" src="assets/images/Imagen encriptador.png" alt="Imagen de una persona con una lupa">
             </div>      
         </div>
-    
         <script src="decodificador.js"></script>
     </main>
-    
     <footer class="footer">
         <p>Desarrollado por Micaela Roig Courtis</p>
     </footer>

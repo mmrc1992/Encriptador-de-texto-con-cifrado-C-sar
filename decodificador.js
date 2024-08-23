@@ -3,86 +3,53 @@ document.addEventListener('DOMContentLoaded', function() {
     const botonDesencriptar = document.getElementById('botonDesencriptar');
     const botonCopiarResultado = document.getElementById('botonCopiarResultado');
     const modalError = document.getElementById('modalError');
-    const cerrarModal = document.querySelector('.cerrar');
+    const cerrarModal = document.querySelector('.cerrar'); // Corrección aquí
     const textoInput = document.getElementById('textoInput');
     const containerResultado = document.getElementById('containerResultado');
     const textoResultado = document.getElementById('textoResultado');
 
-    containerResultado.style.display = 'none'; 
-    
-    botonEncriptar.addEventListener('click', function () {
-        procesarTexto('encriptar');
-    });
+    containerResultado.style.display = 'none';
 
-    botonDesencriptar.addEventListener('click', function () {
-        procesarTexto('desencriptar');
-    });
+    const llavesEncriptacion = {
+        'a': 'ai',
+        'e': 'enter',
+        'i': 'imes',
+        'o': 'ober',
+        'u': 'ufat'
+    };
 
-    botonCopiarResultado.addEventListener('click', function () {
-        copiarTexto('textoResultado');
-    });
+    const llavesDesencriptacion = Object.fromEntries(
+        Object.entries(llavesEncriptacion).map(([letra, valor]) => [valor, letra])
+    );
 
-    cerrarModal.addEventListener('click', function () {
-        modalError.style.display = 'none';
-    });
-
-    function procesarTexto(accion) {
+    function evaluarTexto(procesar) {
         const texto = textoInput.value.trim();
+        const caracteresValidos = /^[a-z\s]*$/;
 
-        if (texto === '') {
+        if (!texto || !caracteresValidos.test(texto)) {
             modalError.style.display = 'block';
-            textoResultado.value = '';
-            containerResultado.style.display = 'none'; 
+            containerResultado.style.display = 'none';
             return;
         }
 
-        const desplazamiento = 3; 
-        textoResultado.value = (accion === 'encriptar') ? encriptarCesar(texto, desplazamiento) : desencriptarCesar(texto, desplazamiento);
-        containerResultado.style.display = 'block'; 
-        botonDesencriptar.disabled = false; 
+        const resultado = texto.replace(
+            procesar === 'encriptar' ? /[aeiou]/g : /ai|enter|imes|ober|ufat/g, // Corrección aquí
+            caracter => procesar === 'encriptar' ? llavesEncriptacion[caracter] : llavesDesencriptacion[caracter]
+        );
+
+        textoResultado.value = resultado; // Corrección aquí
+        containerResultado.style.display = 'block';
+        botonDesencriptar.disabled = false;
     }
 
-    function encriptarCesar(texto, desplazamiento) {
-        const alfabeto = "abcdefghijklmnñopqrstuvwxyz";
-        return texto.replace(/[a-zñ]/gi, function(char) {
-            const esMayuscula = char === char.toUpperCase();
-            char = char.toLowerCase();
-            let index = alfabeto.indexOf(char);
+    botonEncriptar.addEventListener('click', () => evaluarTexto('encriptar'));
+    botonDesencriptar.addEventListener('click', () => evaluarTexto('desencriptar'));
 
-            if (index === -1) {
-                return char; 
-            }
+    botonCopiarResultado.addEventListener('click', () => {
+        navigator.clipboard.writeText(textoResultado.value)
+            .then(() => alert('Texto copiado al portapapeles'))
+            .catch(error => alert('Error al copiar el texto: ', error));
+    });
 
-            index = (index + desplazamiento) % alfabeto.length;
-
-            let nuevoChar = alfabeto[index];
-            return esMayuscula ? nuevoChar.toUpperCase() : nuevoChar;
-        });
-    }
-
-    function desencriptarCesar(texto, desplazamiento) {
-        const alfabeto = "abcdefghijklmnñopqrstuvwxyz";
-        return texto.replace(/[a-zñ]/gi, function(char) {
-            const esMayuscula = char === char.toUpperCase();
-            char = char.toLowerCase();
-            let index = alfabeto.indexOf(char);
-
-            if (index === -1) {
-                return char; 
-            }
-
-            index = (index - desplazamiento + alfabeto.length) % alfabeto.length;
-            let nuevoChar = alfabeto[index];
-            return esMayuscula ? nuevoChar.toUpperCase() : nuevoChar;
-        });
-    }
-
-    function copiarTexto(idTexto) {
-        const texto = document.getElementById(idTexto).value;
-        navigator.clipboard.writeText(texto).then(() => {
-            alert('Texto copiado al portapapeles');
-        }).catch(err => {
-            alert('Error al copiar el texto: ', err);
-        });
-    }
+    cerrarModal.addEventListener('click', () => modalError.style.display = 'none');
 });
