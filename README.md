@@ -33,6 +33,6 @@ Por otra parte, se establecieron otros elementos para estilizar el código:
 - Diseño responsive, desarrollado teniendo en cuenta lo aprendido a lo largo de la formación.
 - Estilización de los botones asignándoles el efecto hover visto en el curso; y también se les agregó un efecto de profundidad apreciable al hacer click sobre ellos.
 - Se agregó un modal de error que se activa cuando el usuario clickea los botones sin previamente agregar una palabra o letra a codificar, agrega caracteres especiales, tildes o letras mayúsculas.
-- El modal contiene la imagen de ejemplo agregada en la guía de desarrollo del challenge de Figma, pero se estilizó para que coincida con la paleta de colores del proyecto.
+- El modal contiene la imagen de ejemplo agregada en la guía de desarrollo del challenge de Figma, pero se modificó para que coincida con la paleta de colores del proyecto.
 - Como background se agregó una imagen a tono con la paleta y estética del código.
 </p>
